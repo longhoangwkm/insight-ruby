@@ -17,6 +17,7 @@ module Insight
       when 'btc-testnet'        then 'https://test-insight.bitpay.com/api'
       when 'bch'                then 'https://bch-insight.bitpay.com/api'
       when 'bch-testnet'        then 'https://test-bch-insight.bitpay.com/api'
+      when 'xpchain'            then 'https://insight.xpchain.io/api'
       else
         raise "Network not found, please specify 'btc', 'btc-testnet' or 'bch'"
       end
@@ -148,7 +149,7 @@ module Insight
         count_target: blocks_ideal.round(1),
       }
     end
-    
+
     alias :chain_tip :blocks_last
     alias :balance :address_balance
     alias :balance_unconfirmed :address_unconfirmed_balance
