@@ -28,6 +28,8 @@ module Insight
                  :block_hash,
                  :transaction,
                  :transactions_by_block,
+                 :transactions_by_block_height,
+                 :block_hash_by_block_height,
                  :rawtx,
                  :push_transaction,
                  :address,

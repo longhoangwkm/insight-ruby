@@ -55,6 +55,15 @@ module Insight
       @connection.get("/txs/?block=#{hash}")[:txs]
     end
 
+    def transactions_by_block_height(block_index)
+      hash = block_hash_by_block_height(block_index)
+      @connection.get("/txs/?block=#{hash}")[:txs]
+    end
+
+    def block_hash_by_block_height(block_index)
+       @connection.get("/block-index/#{block_index}")[:blockHash]
+    end
+
     def rawtx(hash)
       @connection.get "/rawtx/#{hash}"
     end
