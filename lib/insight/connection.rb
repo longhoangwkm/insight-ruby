@@ -16,7 +16,13 @@ module Insight
     def query(method, path, payload={})
       uri = endpoint_uri path
       begin
-        response = RestClient::Request.execute method: method,  url: uri,  payload: payload,  ssl_version: 'SSLv23'
+        response = RestClient::Request.execute(
+          method: method,
+          url: uri,
+          payload: payload, ssl_version: 'SSLv23',
+          timeout: 10,
+          open_timeout: 5
+        )
       rescue Exception => e
         response = e.response
       end

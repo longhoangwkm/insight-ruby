@@ -194,7 +194,7 @@ module Insight
     end
 
     def parse_time(resp)
-      resp[:time] = Time.at resp[:time] if resp[:time]
+      resp[:time] = Time.at resp[:time].to_i if resp[:time]
       resp
     end
 
