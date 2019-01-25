@@ -19,6 +19,28 @@ module Insight
     @api ||= API.new(network: network, url: url)
   end
 
-  def_delegators :@api, :url=, :network=, :blocks, :block, :block_raw, :block_hash, :transaction, :rawtx, :push_transaction, :address, :address_balance, :address_total_received, :address_total_sent, :address_unconfirmed_balance, :address_utxo, :estimatefee, :blocks_last, :chain_tip, :balance, :balance_unconfirmed, :estimate_fee
+  def_delegators :@api,
+                 :url=,
+                 :network=,
+                 :blocks,
+                 :block,
+                 :block_raw,
+                 :block_hash,
+                 :transaction,
+                 :transactions_by_block,
+                 :rawtx,
+                 :push_transaction,
+                 :address,
+                 :address_balance,
+                 :address_total_received,
+                 :address_total_sent,
+                 :address_unconfirmed_balance,
+                 :address_utxo,
+                 :estimatefee,
+                 :blocks_last,
+                 :chain_tip,
+                 :balance,
+                 :balance_unconfirmed,
+                 :estimate_fee
 
 end

@@ -51,6 +51,10 @@ module Insight
       @connection.get "/tx/#{hash}"
     end
 
+    def transactions_by_block(hash)
+      @connection.get("/txs/?block=#{hash}")[:txs]
+    end
+
     def rawtx(hash)
       @connection.get "/rawtx/#{hash}"
     end
