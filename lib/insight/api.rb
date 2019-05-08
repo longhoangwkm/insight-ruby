@@ -34,9 +34,7 @@ module Insight
     end
 
     def blocks
-      blocks = @connection.get "/blocks"
-      blocks = blocks[:blocks] if blocks
-      parse_resp blocks
+      @connection.get "/block"
     end
 
     def block(hash)
@@ -97,6 +95,10 @@ module Insight
       @connection.get "/addr/#{address}/utxo#{query}"
     end
 
+    def address_txs(address)
+      @connection.get "/address/#{address}/txs"
+    end
+
     def estimatefee(nbBlocks = 2)
       resp = @connection.get "/utils/estimatefee?nbBlocks=#{nbBlocks}"
       resp.values.first
@@ -122,7 +124,7 @@ module Insight
     # extra methods
 
     def blocks_last
-      blocks.first
+      @connection.get "/block/tip"
     end
 
     def blocks_today
