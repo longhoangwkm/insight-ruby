@@ -38,6 +38,8 @@ You can also change the Blockchain using:
 
 ### Callable RPC Methods
 
+https://github.com/bitpay/bitcore/blob/master/packages/bitcore-node/docs/api-documentation.md
+
 You can use any of these methods with the initialized object or simply by calling:
 
   ```ruby
