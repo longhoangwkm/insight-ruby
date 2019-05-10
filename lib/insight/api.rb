@@ -70,29 +70,12 @@ module Insight
       @connection.post '/tx/send', rawtx: hex
     end
 
-    def address(address)
-      @connection.get "/addr/#{address}"
-    end
-
     def address_balance(address)
-      @connection.get "/addr/#{address}/balance"
+      @connection.get "/address/#{address}/balance"
     end
 
-    def address_total_received(address)
-      @connection.get "/addr/#{address}/totalReceived"
-    end
-
-    def address_total_sent(address)
-      @connection.get "/addr/#{address}/totalSent"
-    end
-
-    def address_unconfirmed_balance(address)
-      @connection.get "/addr/#{address}/unconfirmedBalance"
-    end
-
-    def address_utxo(address, params = nil)
-      query = query_string params if params
-      @connection.get "/addr/#{address}/utxo#{query}"
+    def address_utxo(address)
+      @connection.get "/address/#{address}/?unspent=true"
     end
 
     def address_txs(address)
@@ -167,7 +150,6 @@ module Insight
 
     alias :chain_tip :blocks_last
     alias :balance :address_balance
-    alias :balance_unconfirmed :address_unconfirmed_balance
     alias :estimate_fee :estimatefee
 
     private
